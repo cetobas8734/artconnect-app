@@ -1,0 +1,26 @@
+{
+  "name": "artconnect-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "extract:pdf": "node scripts/extract-pdf.cjs docs/SKPL_-_ArtConnect_1.4.pdf docs/SKPL_-_ArtConnect_1.4.txt"
+  },
+  "dependencies": {
+    "vue": "^3.5.22"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^15.11.7",
+    "vitest": "^2.1.3",
+    "pdf-parse": "^1.1.1",
+    "vite": "^7.1.7"
+  }
+}
