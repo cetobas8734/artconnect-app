@@ -105,8 +105,11 @@ artconnect-frontend/
 │
 ├── .env.example                    # Environment variables template
 ├── .env.local                      # Local env vars (gitignored)
-├── vite.config.js                  # Vite configuration
-├── jsconfig.json                   # Path aliases for IDE
+├── vite.config.ts                  # Vite configuration
+├── tsconfig.json                   # TypeScript configuration
+├── tsconfig.node.json              # TypeScript config for Node.js
+├── tailwind.config.js              # Tailwind CSS configuration
+├── postcss.config.js               # PostCSS configuration
 └── package.json                    # Dependencies & scripts
 ```
 
@@ -168,7 +171,7 @@ Example: User creates artwork
 
 **Always use path alias `@/`:**
 
-```javascript
+```typescript
 // ✅ Good
 import Button from '@/components/ui/Button.vue'
 import { useAuth } from '@/composables/useAuth'
@@ -187,10 +190,11 @@ import { useAuth } from '../composables/useAuth'
 | Type | Convention | Example |
 |------|-----------|---------|
 | **Components** | PascalCase + `.vue` | `ArtworkCard.vue`, `TextInput.vue` |
-| **Composables** | camelCase + `use` prefix | `useAuth.js`, `useForm.js` |
-| **Services** | camelCase + `Service` suffix | `artworksService.js` |
-| **Views** | PascalCase + `View` suffix | `ArtworksListView.vue` |
-| **Utils** | camelCase | `formatters.js`, `validators.js` |
+| **Composables** | camelCase + `use` prefix + `.ts` | `useAuth.ts`, `useForm.ts` |
+| **Services** | camelCase + `Service` suffix + `.ts` | `artworksService.ts` |
+| **Views** | PascalCase + `View` suffix + `.vue` | `ArtworksListView.vue` |
+| **Utils** | camelCase + `.ts` | `formatters.ts`, `validators.ts` |
+| **Types** | PascalCase + `.ts` in `types/` | `Artwork.ts`, `User.ts` |
 | **Constants** | UPPER_SNAKE_CASE (values) | `ARTWORK_MEDIUMS` |
 
 ---

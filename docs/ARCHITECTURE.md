@@ -87,6 +87,8 @@ ArtConnect menggunakan **Hybrid Architecture** dengan pemisahan concerns yang je
 **Tech Stack:**
 - Vue 3 (Composition API)
 - Vite (build tool)
+- TypeScript (type safety)
+- Tailwind CSS (styling)
 - Vue Router (routing)
 - Axios (HTTP client)
 - Firebase SDK (auth only)
@@ -147,6 +149,7 @@ VITE_API_BASE_URL              # Backend API URL (e.g., http://localhost:3000/ap
 - Node.js + Express
 - Prisma ORM
 - MySQL database
+- TypeScript (type safety)
 - Firebase Admin SDK (token verification)
 - Multer (file uploads)
 - Sharp (image processing)

@@ -22,12 +22,12 @@ ArtConnect membantu seniman visual untuk:
 |----------|------------|
 | **Frontend Framework** | Vue 3 (Composition API) |
 | **Build Tool** | Vite 7.1.7 |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS |
 | **Authentication** | Firebase Auth (Google Sign-In - Free Tier) |
 | **Backend API** | Node.js + Express + Prisma (separate project) |
 | **Database** | MySQL (managed by backend) |
 | **Testing** | Vitest + Vue Test Utils + happy-dom |
-| **Styling** | CSS (future: Tailwind CSS) |
-| **Language** | JavaScript (future: TypeScript) |
 
 ### Architecture Overview
 
@@ -241,8 +241,11 @@ tests/
 
 | File | Purpose |
 |------|---------|
-| `vite.config.js` | Vite build tool configuration + Vitest setup |
-| `jsconfig.json` | Path alias resolution untuk IDE (VS Code) |
+| `vite.config.ts` | Vite build tool configuration + Vitest setup |
+| `tsconfig.json` | TypeScript configuration |
+| `tsconfig.node.json` | TypeScript config for Node.js (Vite config) |
+| `tailwind.config.js` | Tailwind CSS configuration |
+| `postcss.config.js` | PostCSS configuration (for Tailwind) |
 | `.env.example` | Environment variables template (Firebase config) |
 | `.env.local` | Local environment variables (**gitignored**) |
 | `package.json` | Dependencies, scripts, project metadata |
@@ -322,6 +325,8 @@ firebase deploy --only hosting
 ### Code Standards
 
 - **Vue 3 Composition API** (not Options API)
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling (utility-first approach)
 - **Conventional commits** for commit messages
 - **Path alias `@`** for imports (`@/modules/...`)
 - **Test coverage** >80% for new code
@@ -377,6 +382,8 @@ hotfix/*      # Critical production fixes
 
 **Progress:**
 - ✅ Project setup complete
+- ✅ TypeScript configuration
+- ✅ Tailwind CSS setup
 - ✅ Testing infrastructure configured
 - ✅ Path aliases configured
 - 🔄 Authentication module (in progress)

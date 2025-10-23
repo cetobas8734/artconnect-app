@@ -2,7 +2,7 @@
 
 ## Overview
 
-Dokumen ini menjelaskan struktur folder, naming conventions, dan organizational patterns untuk codebase ArtConnect (Vue 3 + Vite + Firebase).
+Dokumen ini menjelaskan struktur folder, naming conventions, dan organizational patterns untuk codebase ArtConnect (Vue 3 + Vite + TypeScript + Tailwind CSS + Firebase Auth).
 
 **Tujuan:**
 - Consistency dalam file organization
@@ -20,9 +20,8 @@ artconnect-frontend/
 │   └── favicon.ico              # Site icon
 │
 ├── src/                         # Source code utama
-│   ├── main.js                  # App entry point
+│   ├── main.ts                  # App entry point
 │   ├── App.vue                  # Root component
-│   ├── style.css                # Global styles
 │   │
 │   ├── assets/                  # Assets yang diproses Vite
 │   │   ├── images/              # Images (processed)
@@ -33,7 +32,7 @@ artconnect-frontend/
 │       └── HelloWorld.vue       # Placeholder component
 │
 ├── tests/                       # Test files (Vitest)
-│   └── smoke.spec.js            # Sample test
+│   └── smoke.spec.ts            # Sample test
 │
 ├── docs/                        # Project documentation
 │   ├── GIT_STRATEGY.md          # Git workflow
@@ -50,10 +49,13 @@ artconnect-frontend/
 ├── .env.example                 # Environment variables template
 ├── .gitignore                   # Git ignore rules
 ├── index.html                   # HTML entry point
-├── jsconfig.json                # JavaScript config (path alias)
+├── tsconfig.json                # TypeScript configuration
+├── tsconfig.node.json           # TypeScript config for Node.js
+├── tailwind.config.js           # Tailwind CSS configuration
+├── postcss.config.js            # PostCSS configuration
 ├── package.json                 # Dependencies dan scripts
 ├── README.md                    # Project overview
-└── vite.config.js               # Vite configuration
+└── vite.config.ts               # Vite configuration
 ```
 
 ---
@@ -70,7 +72,7 @@ artconnect-frontend/
 │   └── manifest.json            # PWA manifest (future)
 │
 ├── src/
-│   ├── main.js                  # App entry point
+│   ├── main.ts                  # App entry point
 │   ├── App.vue                  # Root component
 │   │
 │   ├── assets/                  # Static assets
@@ -78,12 +80,7 @@ artconnect-frontend/
 │   │   │   ├── logos/           # Brand logos
 │   │   │   ├── placeholders/    # Placeholder images
 │   │   │   └── backgrounds/     # Background images
-│   │   ├── icons/               # SVG icon library
-│   │   └── styles/              # Global styles
-│   │       ├── main.css         # Main stylesheet
-│   │       ├── variables.css    # CSS variables (colors, spacing)
-│   │       ├── typography.css   # Font styles
-│   │       └── utilities.css    # Utility classes
+│   │   └── icons/               # SVG icon library
 │   │
 │   ├── modules/                 # Feature modules (domain-driven)
 │   │   │
@@ -94,15 +91,17 @@ artconnect-frontend/
 │   │   │   │   ├── ForgotPasswordForm.vue
 │   │   │   │   └── ProfileForm.vue
 │   │   │   ├── composables/
-│   │   │   │   ├── useAuth.js           # Auth state management
-│   │   │   │   └── useAuthValidation.js # Form validation
+│   │   │   │   ├── useAuth.ts           # Auth state management
+│   │   │   │   └── useAuthValidation.ts # Form validation
 │   │   │   ├── services/
-│   │   │   │   └── authService.js       # Firebase Auth API
+│   │   │   │   └── authService.ts       # Firebase Auth API
 │   │   │   ├── views/
 │   │   │   │   ├── LoginView.vue
 │   │   │   │   ├── RegisterView.vue
 │   │   │   │   └── ProfileView.vue
-│   │   │   └── routes.js                # Auth module routes
+│   │   │   ├── types/
+│   │   │   │   └── auth.types.ts        # TypeScript interfaces
+│   │   │   └── routes.ts                # Auth module routes
 │   │   │
 │   │   ├── artworks/            # Artwork management (SRS-F-007 to F-013)
 │   │   │   ├── components/
@@ -114,17 +113,19 @@ artconnect-frontend/
 │   │   │   │   ├── ArtworkFilters.vue
 │   │   │   │   └── ArtworkSortDropdown.vue
 │   │   │   ├── composables/
-│   │   │   │   ├── useArtworks.js       # Artwork CRUD
-│   │   │   │   ├── useArtworkUpload.js  # Upload logic
-│   │   │   │   └── useArtworkSearch.js  # Search/filter
+│   │   │   │   ├── useArtworks.ts       # Artwork CRUD
+│   │   │   │   ├── useArtworkUpload.ts  # Upload logic
+│   │   │   │   └── useArtworkSearch.ts  # Search/filter
 │   │   │   ├── services/
-│   │   │   │   ├── artworkService.js    # Firestore API
-│   │   │   │   └── storageService.js    # Firebase Storage API
+│   │   │   │   ├── artworkService.ts    # Backend API
+│   │   │   │   └── storageService.ts    # File upload service
 │   │   │   ├── views/
 │   │   │   │   ├── ArtworkListView.vue
 │   │   │   │   ├── ArtworkCreateView.vue
 │   │   │   │   └── ArtworkDetailView.vue
-│   │   │   └── routes.js
+│   │   │   ├── types/
+│   │   │   │   └── artwork.types.ts     # TypeScript interfaces
+│   │   │   └── routes.ts
 │   │   │
 │   │   ├── contacts/            # Contact management (SRS-F-014 to F-017)
 │   │   │   ├── components/
@@ -134,14 +135,16 @@ artconnect-frontend/
 │   │   │   │   ├── ContactDetailModal.vue
 │   │   │   │   └── ContactFilters.vue
 │   │   │   ├── composables/
-│   │   │   │   ├── useContacts.js
-│   │   │   │   └── useContactSearch.js
+│   │   │   │   ├── useContacts.ts
+│   │   │   │   └── useContactSearch.ts
 │   │   │   ├── services/
-│   │   │   │   └── contactService.js
+│   │   │   │   └── contactService.ts
 │   │   │   ├── views/
 │   │   │   │   ├── ContactListView.vue
 │   │   │   │   └── ContactDetailView.vue
-│   │   │   └── routes.js
+│   │   │   ├── types/
+│   │   │   │   └── contact.types.ts     # TypeScript interfaces
+│   │   │   └── routes.ts
 │   │   │
 │   │   ├── pipeline/            # Sales pipeline (SRS-F-018 to F-020)
 │   │   │   ├── components/
